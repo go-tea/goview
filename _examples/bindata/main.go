@@ -15,10 +15,10 @@ import (
 	"net/http"
 
 	"github.com/elazarl/go-bindata-assetfs"
-	"github.com/foolin/goview"
-	"github.com/foolin/goview/_examples/bindata/assets/static"
-	"github.com/foolin/goview/_examples/bindata/assets/views"
-	"github.com/foolin/goview/supports/bindata"
+	"github.com/go-tea/goview"
+	"github.com/go-tea/goview/_examples/bindata/assets/static"
+	"github.com/go-tea/goview/_examples/bindata/assets/views"
+	"github.com/go-tea/goview/supports/bindata"
 	"github.com/go-tea/tea"
 	"github.com/go-tea/tea/serve"
 )

@@ -2,7 +2,7 @@ package bindata
 
 import (
 	"github.com/elazarl/go-bindata-assetfs"
-	"github.com/foolin/goview"
+	"github.com/go-tea/goview"
 )
 
 // go-bindata -prefix "dir/" -pkg main -o bindata.go dir/...
