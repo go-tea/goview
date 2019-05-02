@@ -52,7 +52,13 @@ Project structure:
 
 Learn more at https://github.com/go-tea/goview
 
+================== Assets ==================
 
+Gorice for Go.rice:
+https://godoc.org/github.com/go-tea/goview/assets/gorice
+
+Bindata for go-bindata:
+https://godoc.org/github.com/go-tea/goview/assets/bindata
 
 ================== Supports ==================
 
@@ -62,8 +68,6 @@ https://godoc.org/github.com/go-tea/goview/supports/ginview
 Echoview for Echo framework:
 https://godoc.org/github.com/go-tea/goview/supports/echoview
 
-Gorice for Go.rice:
-https://godoc.org/github.com/go-tea/goview/supports/gorice
 
 Examples:
 https://github.com/go-tea/goview/_examples
