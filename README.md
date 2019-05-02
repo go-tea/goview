@@ -1,6 +1,6 @@
 # goview
 
-[![GoDoc Widget]][GoDoc] [![Travis Widget]][Travis]
+[![GoDoc Widget]][GoDoc] 
 
 Goview is a lightweight, minimalist and idiomatic template library based on golang html/template for building Go web application.
 
@@ -732,5 +732,3 @@ See [_examples/](https://github.com/go-tea/goview/blob/master/_examples/) for a 
 
 [GoDoc]: https://godoc.org/github.com/go-tea/goview
 [GoDoc Widget]: https://godoc.org/github.com/go-tea/goview?status.svg
-[Travis]: https://travis-ci.org/go-tea/goview
-[Travis Widget]: https://travis-ci.org/go-tea/goview.svg?branch=master
