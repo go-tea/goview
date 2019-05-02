@@ -10,7 +10,8 @@ Goview is a lightweight, minimalist and idiomatic template library based on gola
 - [Features](#features)
 - [Docs](#docs)
 - [Assets](#assets)
-	- [Go.Rice](https://github.com/go-tea/goview/tree/master/supports/gorice)
+	- [Go.Rice](https://github.com/go-tea/goview/tree/master/assets/gorice)
+	- [Bindata](https://github.com/go-tea/goview/tree/master/assets/bindata)
 	
 - [Supports](#supports)
     - [Gin Framework](https://github.com/go-tea/goview/tree/master/supports/ginview)
@@ -57,7 +58,8 @@ go get -u github.com/go-tea/goview
 See https://www.godoc.org/github.com/foolin/goview
 
 ## Asserts
-- **[gorice](https://github.com/foolin/goview/tree/master/assets/gorice)** goview for go.rice
+- **[gorice](https://github.com/go-tea/goview/tree/master/assets/gorice)** goview for go.rice
+- **[bindata](https://github.com/go-tea/goview/tree/master/assets/bindata)** goview for bindata
 
 ## Supports
 - **[ginview](https://github.com/go-tea/goview/tree/master/supports/ginview)** goview for gin framework
