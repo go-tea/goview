@@ -9,10 +9,12 @@ Goview is a lightweight, minimalist and idiomatic template library based on gola
 - [Install](#install)
 - [Features](#features)
 - [Docs](#docs)
+- [Assets](#assets)
+	- [Go.Rice](https://github.com/go-tea/goview/tree/master/supports/gorice)
+	
 - [Supports](#supports)
-    - [Gin Framework](https://github.com/foolin/goview/tree/master/supports/ginview)
-    - [Echo Framework](https://github.com/foolin/goview/tree/master/supports/echoview)
-    - [Go.Rice](https://github.com/foolin/goview/tree/master/supports/gorice)
+    - [Gin Framework](https://github.com/go-tea/goview/tree/master/supports/ginview)
+    - [Echo Framework](https://github.com/go-tea/goview/tree/master/supports/echoview)
 - [Usage](#usage)
     - [Overview](#overview)
     - [Config](#config)
@@ -31,7 +33,7 @@ Goview is a lightweight, minimalist and idiomatic template library based on gola
 
 ## Install
 ```bash
-go get -u github.com/foolin/goview
+go get -u github.com/go-tea/goview
 ```
 
 
@@ -54,11 +56,12 @@ go get -u github.com/foolin/goview
 ## Docs
 See https://www.godoc.org/github.com/foolin/goview
 
+## Asserts
+- **[gorice](https://github.com/foolin/goview/tree/master/assets/gorice)** goview for go.rice
 
 ## Supports
-- **[ginview](https://github.com/foolin/goview/tree/master/supports/ginview)** goview for gin framework
-- **[echoview](https://github.com/foolin/goview/tree/master/supports/echoview)** goview for echo framework
-- **[gorice](https://github.com/foolin/goview/tree/master/supports/gorice)** goview for go.rice
+- **[ginview](https://github.com/go-tea/goview/tree/master/supports/ginview)** goview for gin framework
+- **[echoview](https://github.com/go-tea/goview/tree/master/supports/echoview)** goview for echo framework
 
 
 ## Usage
@@ -217,7 +220,7 @@ goview.Render(w, http.StatusOK, "page.html", goview.M{})
 
 ## Examples
 
-See [_examples/](https://github.com/foolin/goview/blob/master/_examples/) for a variety of examples.
+See [_examples/](https://github.com/go-tea/goview/blob/master/_examples/) for a variety of examples.
 
 
 ### Basic example
@@ -227,7 +230,7 @@ package main
 
 import (
 	"fmt"
-	"github.com/foolin/goview"
+	"github.com/go-tea/goview"
 	"net/http"
 )
 
@@ -275,13 +278,13 @@ Project structure:
 See in "examples/basic" folder
 ```
 
-[Basic example](https://github.com/foolin/goview/tree/master/_examples/basic)
+[Basic example](https://github.com/go-tea/goview/tree/master/_examples/basic)
 
 
 ### Gin example
 
 ```bash
-go get -u github.com/foolin/goview/supports/ginview
+go get -u github.com/go-tea/goview/supports/ginview
 ```
 
 ```go
@@ -289,7 +292,7 @@ go get -u github.com/foolin/goview/supports/ginview
 package main
 
 import (
-	"github.com/foolin/goview/supports/ginview"
+	"github.com/go-tea/goview/supports/ginview"
 	"github.com/gin-gonic/gin"
 	"net/http"
 )
@@ -333,14 +336,14 @@ Project structure:
 See in "examples/basic" folder
 ```
 
-[Gin example](https://github.com/foolin/goview/tree/master/_examples/gin)
+[Gin example](https://github.com/go-tea/goview/tree/master/_examples/gin)
 
 
 
 ### Echo example
 
 ```bash
-go get -u github.com/foolin/goview/supports/echoview
+go get -u github.com/go-tea/goview/supports/echoview
 ```
 
 
@@ -349,7 +352,7 @@ go get -u github.com/foolin/goview/supports/echoview
 package main
 
 import (
-	"github.com/foolin/goview/supports/echoview"
+	"github.com/go-tea/goview/supports/echoview"
 	"github.com/labstack/echo"
 	"github.com/labstack/echo/middleware"
 	"net/http"
@@ -402,7 +405,7 @@ Project structure:
 See in "examples/basic" folder
 ```
 
-[Echo example](https://github.com/foolin/goview/tree/master/_examples/echo)
+[Echo example](https://github.com/go-tea/goview/tree/master/_examples/echo)
 
 
 
@@ -413,7 +416,7 @@ package main
 
 import (
 	"fmt"
-	"github.com/foolin/goview"
+	"github.com/go-tea/goview"
 	"github.com/go-chi/chi"
 	"net/http"
 )
@@ -463,7 +466,7 @@ Project structure:
 See in "examples/basic" folder
 ```
 
-[Chi example](https://github.com/foolin/goview/tree/master/_examples/go-chi)
+[Chi example](https://github.com/go-tea/goview/tree/master/_examples/go-chi)
 
 
 
@@ -474,7 +477,7 @@ package main
 
 import (
 	"fmt"
-	"github.com/foolin/goview"
+	"github.com/go-tea/goview"
 	"html/template"
 	"net/http"
 	"time"
@@ -545,7 +548,7 @@ Project structure:
 See in "examples/advance" folder
 ```
 
-[Advance example](https://github.com/foolin/goview/tree/master/_examples/advance)
+[Advance example](https://github.com/go-tea/goview/tree/master/_examples/advance)
 
 ### Multiple example
 ```go
@@ -557,7 +560,7 @@ import (
 	"net/http"
 	"time"
 
-	"github.com/foolin/goview"
+	"github.com/go-tea/goview"
 	"github.com/gin-gonic/gin"
 )
 
@@ -640,13 +643,13 @@ Project structure:
 See in "examples/multiple" folder
 ```
 
-[Multiple example](https://github.com/foolin/goview/tree/master/_examples/multiple)
+[Multiple example](https://github.com/go-tea/goview/tree/master/_examples/multiple)
 
 
 ### go.rice example
 
 ```bash
-go get -u github.com/foolin/goview/supports/gorice
+go get -u github.com/go-tea/goview/assets/gorice
 ```
 
 ```go
@@ -656,8 +659,8 @@ package main
 import (
 	"fmt"
 	"github.com/GeertJohan/go.rice"
-	"github.com/foolin/goview"
-	"github.com/foolin/goview/supports/gorice"
+	"github.com/go-tea/goview"
+	"github.com/go-tea/goview/assets/gorice"
 	"net/http"
 )
 
@@ -718,11 +721,11 @@ Project structure:
 See in "examples/gorice" folder
 ```
 
-[gorice example](https://github.com/foolin/goview/tree/master/_examples/gorice)
+[gorice example](https://github.com/go-tea/goview/tree/master/_examples/gorice)
 
 ### More examples
 
-See [_examples/](https://github.com/foolin/goview/blob/master/_examples/) for a variety of examples.
+See [_examples/](https://github.com/go-tea/goview/blob/master/_examples/) for a variety of examples.
 
 
 [GoDoc]: https://godoc.org/github.com/foolin/goview
