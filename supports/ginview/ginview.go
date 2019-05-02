@@ -1,10 +1,11 @@
 package ginview
 
 import (
-	"github.com/foolin/goview"
+	"net/http"
+
 	"github.com/gin-gonic/gin"
 	"github.com/gin-gonic/gin/render"
-	"net/http"
+	"github.com/go-tea/goview"
 )
 
 const templateEngineKey = "foolin-goview-ginview"
