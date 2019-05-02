@@ -9,9 +9,10 @@
 package main
 
 import (
-	"github.com/foolin/goview/supports/ginview"
-	"github.com/gin-gonic/gin"
 	"net/http"
+
+	"github.com/gin-gonic/gin"
+	"github.com/go-tea/goview/supports/ginview"
 )
 
 func main() {

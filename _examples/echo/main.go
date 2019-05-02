@@ -9,10 +9,11 @@
 package main
 
 import (
-	"github.com/foolin/goview/supports/echoview"
+	"net/http"
+
+	"github.com/go-tea/goview/supports/echoview"
 	"github.com/labstack/echo"
 	"github.com/labstack/echo/middleware"
-	"net/http"
 )
 
 func main() {

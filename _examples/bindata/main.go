@@ -18,7 +18,7 @@ import (
 	"github.com/go-tea/goview"
 	"github.com/go-tea/goview/_examples/bindata/assets/static"
 	"github.com/go-tea/goview/_examples/bindata/assets/views"
-	"github.com/go-tea/goview/supports/bindata"
+	"github.com/go-tea/goview/assets/bindata"
 	"github.com/go-tea/tea"
 	"github.com/go-tea/tea/serve"
 )

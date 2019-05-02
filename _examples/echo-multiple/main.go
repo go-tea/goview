@@ -9,11 +9,12 @@
 package main
 
 import (
-	"github.com/foolin/goview"
-	"github.com/foolin/goview/supports/echoview"
 	"html/template"
 	"net/http"
 	"time"
+
+	"github.com/go-tea/goview"
+	"github.com/go-tea/goview/supports/echoview"
 
 	"github.com/labstack/echo"
 	"github.com/labstack/echo/middleware"

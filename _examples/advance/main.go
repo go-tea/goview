@@ -10,10 +10,11 @@ package main
 
 import (
 	"fmt"
-	"github.com/foolin/goview"
 	"html/template"
 	"net/http"
 	"time"
+
+	"github.com/go-tea/goview"
 )
 
 func main() {
