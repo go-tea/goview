@@ -1,11 +1,3 @@
-/*
- * Copyright 2018 Foolin.  All rights reserved.
- *
- * Use of this source code is governed by a MIT style
- * license that can be found in the LICENSE file.
- *
- */
-
 //go:generate go-bindata  -pkg staticdata -o assets/static/bindata.go static/...
 //go:generate go-bindata -prefix "views/" -pkg viewsdata -o assets/views/bindata.go views/...
 
@@ -42,7 +34,6 @@ func main() {
 	templateFS := &assetfs.AssetFS{Asset: viewsdata.Asset, AssetDir: viewsdata.AssetDir, AssetInfo: viewsdata.AssetInfo, Prefix: "views"}
 
 	//new template engine
-	//e = engine.New(config
 	e = bindata.NewWithConfig(templateFS, config)
 
 	router.Get("/", h_home)
