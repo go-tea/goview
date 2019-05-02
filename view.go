@@ -7,7 +7,7 @@ Example:
 
 	import (
 		"fmt"
-		"github.com/foolin/goview"
+		"github.com/go-tea/goview"
 		"net/http"
 	)
 
@@ -50,23 +50,23 @@ Project structure:
 		   |--- footer.html
 		   |--- master.html
 
-Learn more at https://github.com/foolin/goview
+Learn more at https://github.com/go-tea/goview
 
 
 
 ================== Supports ==================
 
 Ginview for Gin framework:
-https://godoc.org/github.com/foolin/goview/supports/ginview
+https://godoc.org/github.com/go-tea/goview/supports/ginview
 
 Echoview for Echo framework:
-https://godoc.org/github.com/foolin/goview/supports/echoview
+https://godoc.org/github.com/go-tea/goview/supports/echoview
 
 Gorice for Go.rice:
-https://godoc.org/github.com/foolin/goview/supports/gorice
+https://godoc.org/github.com/go-tea/goview/supports/gorice
 
 Examples:
-https://github.com/foolin/goview/_examples
+https://github.com/go-tea/goview/_examples
 
 */
 package goview
