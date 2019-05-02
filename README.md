@@ -55,7 +55,7 @@ go get -u github.com/go-tea/goview
 
 
 ## Docs
-See https://www.godoc.org/github.com/foolin/goview
+See https://www.godoc.org/github.com/go-tea/goview
 
 ## Asserts
 - **[gorice](https://github.com/go-tea/goview/tree/master/assets/gorice)** goview for go.rice
@@ -730,7 +730,7 @@ See in "examples/gorice" folder
 See [_examples/](https://github.com/go-tea/goview/blob/master/_examples/) for a variety of examples.
 
 
-[GoDoc]: https://godoc.org/github.com/foolin/goview
-[GoDoc Widget]: https://godoc.org/github.com/foolin/goview?status.svg
-[Travis]: https://travis-ci.org/foolin/goview
-[Travis Widget]: https://travis-ci.org/foolin/goview.svg?branch=master
+[GoDoc]: https://godoc.org/github.com/go-tea/goview
+[GoDoc Widget]: https://godoc.org/github.com/go-tea/goview?status.svg
+[Travis]: https://travis-ci.org/go-tea/goview
+[Travis Widget]: https://travis-ci.org/go-tea/goview.svg?branch=master
