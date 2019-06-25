@@ -11,7 +11,20 @@ type ViewRender struct {
 	Vars   M
 }
 
+func (e *ViewEngine) NewInstance(name string) ViewRender {
+
+	return ViewRender{
+		Engine: e,
+		Name:   name,
+		Vars:   make(M),
+	}
+}
+
 func (e *ViewEngine) Instance(name string, data map[string]interface{}) ViewRender {
+
+	if data == nil {
+		data = make(M)
+	}
 
 	return ViewRender{
 		Engine: e,
@@ -39,27 +52,4 @@ func (r ViewRender) Render(w http.ResponseWriter) {
 		}
 	}
 
-}
-
-// Allows StatusError to satisfy the error interface.
-func (se StatusError) Error() string {
-	return se.Err.Error()
-}
-
-// Returns our HTTP status code.
-func (se StatusError) Status() int {
-	return se.Code
-}
-
-// Error represents a handler error. It provides methods for a HTTP status
-// code and embeds the built-in error interface.
-type IStatusError interface {
-	error
-	Status() int
-}
-
-// StatusError represents an error with an associated HTTP status code.
-type StatusError struct {
-	Code int
-	Err  error
 }

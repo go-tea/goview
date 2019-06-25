@@ -109,13 +109,13 @@ type ViewEngine struct {
 }
 
 type Config struct {
-	Root         string           //view root
-	Extension    string           //template extension
-	Master       string           //template master
-	Partials     []string         //template partial, such as head, foot
-	Funcs        template.FuncMap //template functions
-	DisableCache bool             //disable cache, debug mode
-	Delims       Delims           //delimeters
+	Root         string           `yaml:"root"`            //view root
+	Master       string           `yaml:"master"`          //template master
+	Partials     []string         `yaml:"partials"`        //template partial, such as head, foot
+	Extension    string           `yaml:"extension"`       //template extension
+	Funcs        template.FuncMap `yaml:"funcs,omitempty"` //template functions
+	DisableCache bool             `yaml:"disablecache"`    //disable cache, debug mode
+	Delims       Delims           `yaml:"delims"`          //delimeters
 }
 
 type M map[string]interface{}
@@ -206,7 +206,10 @@ func (e *ViewEngine) executeTemplate(out io.Writer, name string, data interface{
 			var data string
 			data, err = e.fileHandler(e.config, v)
 			if err != nil {
-				return err
+				se := new(StatusError)
+				se.Code = http.StatusInternalServerError
+				se.Err = fmt.Errorf("ViewEngine fileHandler error: %v", err)
+				return se
 			}
 			var tmpl *template.Template
 			if v == name {
@@ -216,7 +219,11 @@ func (e *ViewEngine) executeTemplate(out io.Writer, name string, data interface{
 			}
 			_, err = tmpl.Parse(data)
 			if err != nil {
-				return fmt.Errorf("ViewEngine render parser name:%v, error: %v", v, err)
+				se := new(StatusError)
+				se.Code = http.StatusInternalServerError
+				se.Err = fmt.Errorf("ViewEngine render parser name:%v, error: %v", v, err)
+				return se
+				//	return fmt.Errorf("ViewEngine render parser name:%v, error: %v", v, err)
 			}
 		}
 		e.tplMutex.Lock()
@@ -227,7 +234,11 @@ func (e *ViewEngine) executeTemplate(out io.Writer, name string, data interface{
 	// Display the content to the screen
 	err = tpl.Funcs(allFuncs).ExecuteTemplate(out, exeName, data)
 	if err != nil {
-		return fmt.Errorf("ViewEngine execute template error: %v", err)
+		se := new(StatusError)
+		se.Code = http.StatusInternalServerError
+		se.Err = fmt.Errorf("ViewEngine execute template error: %v", err)
+		return se
+		//return fmt.Errorf("ViewEngine execute template error: %v", err)
 	}
 
 	return nil
