@@ -11,6 +11,7 @@ type ViewRender struct {
 	Vars   M
 }
 
+/*
 func (e *ViewEngine) NewInstance(name string) ViewRender {
 
 	return ViewRender{
@@ -19,17 +20,20 @@ func (e *ViewEngine) NewInstance(name string) ViewRender {
 		Vars:   make(M),
 	}
 }
+*/
 
-func (e *ViewEngine) Instance(name string, data map[string]interface{}) ViewRender {
+func (e *ViewEngine) Instance(name string, data ...map[string]interface{}) ViewRender {
 
-	if data == nil {
-		data = make(M)
+	d := make(M)
+
+	if data != nil {
+		d = data[0]
 	}
 
 	return ViewRender{
 		Engine: e,
 		Name:   name,
-		Vars:   data,
+		Vars:   d,
 	}
 }
 
@@ -40,10 +44,8 @@ func (r ViewRender) Render(w http.ResponseWriter) {
 		case IStatusError:
 			// We can retrieve the status here and write out a specific
 			// HTTP status code.
-			if e.Error != nil {
-				log.Printf("HTTP %d - %s", e.Status(), e)
-				http.Error(w, e.Error(), e.Status())
-			}
+			log.Printf("HTTP %d - %s", e.Status(), e)
+			http.Error(w, e.Error(), e.Status())
 		default:
 			// Any error types we don't specifically look out for default
 			// to serving a HTTP 500
