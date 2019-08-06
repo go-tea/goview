@@ -1,3 +1,5 @@
+package goview
+
 /*
 Goview is a lightweight, minimalist and idiomatic template library based on golang html/template for building Go web application.
 
@@ -73,7 +75,6 @@ Examples:
 https://github.com/go-tea/goview/_examples
 
 */
-package goview
 
 import (
 	"bytes"
@@ -88,9 +89,10 @@ import (
 	"sync"
 )
 
-//const templateEngineKey = "httpx_templateEngine"
-var HtmlContentType = []string{"text/html; charset=utf-8"}
+// HTMLContentType variable
+var HTMLContentType = []string{"text/html; charset=utf-8"}
 
+// DefaultConfig variable
 var DefaultConfig = Config{
 	Root:         "views",
 	Extension:    ".html",
@@ -101,6 +103,7 @@ var DefaultConfig = Config{
 	Delims:       Delims{Left: "{{", Right: "}}"},
 }
 
+// ViewEngine struct
 type ViewEngine struct {
 	config      Config
 	tplMap      map[string]*template.Template
@@ -108,6 +111,7 @@ type ViewEngine struct {
 	fileHandler FileHandler
 }
 
+// Config struct
 type Config struct {
 	Root         string           `yaml:"root"`            //view root
 	Master       string           `yaml:"master"`          //template master
@@ -118,15 +122,19 @@ type Config struct {
 	Delims       Delims           `yaml:"delims"`          //delimeters
 }
 
+// M type
 type M map[string]interface{}
 
+// Delims type
 type Delims struct {
 	Left  string
 	Right string
 }
 
+// FileHandler type
 type FileHandler func(config Config, tplFile string) (content string, err error)
 
+// New function
 func New(config Config) *ViewEngine {
 	return &ViewEngine{
 		config:      config,
@@ -136,19 +144,22 @@ func New(config Config) *ViewEngine {
 	}
 }
 
+// Default function
 func Default() *ViewEngine {
 	return New(DefaultConfig)
 }
 
+// Render method
 func (e *ViewEngine) Render(w http.ResponseWriter, statusCode int, name string, data interface{}) error {
 	header := w.Header()
 	if val := header["Content-Type"]; len(val) == 0 {
-		header["Content-Type"] = HtmlContentType
+		header["Content-Type"] = HTMLContentType
 	}
 	w.WriteHeader(statusCode)
 	return e.executeRender(w, name, data)
 }
 
+// RenderWriter method
 func (e *ViewEngine) RenderWriter(w io.Writer, name string, data interface{}) error {
 	return e.executeRender(w, name, data)
 }
@@ -244,6 +255,7 @@ func (e *ViewEngine) executeTemplate(out io.Writer, name string, data interface{
 	return nil
 }
 
+// SetFileHandler method
 func (e *ViewEngine) SetFileHandler(handle FileHandler) {
 	if handle == nil {
 		panic("FileHandler can't set nil!")
@@ -251,6 +263,7 @@ func (e *ViewEngine) SetFileHandler(handle FileHandler) {
 	e.fileHandler = handle
 }
 
+// DefaultFileHandler function
 func DefaultFileHandler() FileHandler {
 	return func(config Config, tplFile string) (content string, err error) {
 		// Get the absolute path of the root template
