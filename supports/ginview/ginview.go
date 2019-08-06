@@ -10,26 +10,31 @@ import (
 
 const templateEngineKey = "foolin-goview-ginview"
 
+// ViewEngine struct
 type ViewEngine struct {
 	*goview.ViewEngine
 }
 
+// ViewRender struct
 type ViewRender struct {
 	Engine *ViewEngine
 	Name   string
 	Data   interface{}
 }
 
+// New function
 func New(config goview.Config) *ViewEngine {
 	return &ViewEngine{
 		ViewEngine: goview.New(config),
 	}
 }
 
+// Default function
 func Default() *ViewEngine {
 	return New(goview.DefaultConfig)
 }
 
+// Instance method
 func (e *ViewEngine) Instance(name string, data interface{}) render.Render {
 	return ViewRender{
 		Engine: e,
@@ -38,6 +43,7 @@ func (e *ViewEngine) Instance(name string, data interface{}) render.Render {
 	}
 }
 
+// HTML method
 func (e *ViewEngine) HTML(ctx *gin.Context, code int, name string, data interface{}) {
 	instance := e.Instance(name, data)
 	ctx.Render(code, instance)
@@ -48,6 +54,7 @@ func (v ViewRender) Render(w http.ResponseWriter) error {
 	return v.Engine.RenderWriter(w, v.Name, v.Data)
 }
 
+// WriteContentType method
 func (v ViewRender) WriteContentType(w http.ResponseWriter) {
 	header := w.Header()
 	if val := header["Content-Type"]; len(val) == 0 {
@@ -55,18 +62,20 @@ func (v ViewRender) WriteContentType(w http.ResponseWriter) {
 	}
 }
 
-//New gin middleware for func `gintemplate.HTML()`
+//NewMiddleware create new gin middleware
 func NewMiddleware(config goview.Config) gin.HandlerFunc {
 	return Middleware(New(config))
 }
 
+// Middleware function
+// You should use helper func `Middleware()` to set the supplied
 func Middleware(e *ViewEngine) gin.HandlerFunc {
 	return func(c *gin.Context) {
 		c.Set(templateEngineKey, e)
 	}
 }
 
-// You should use helper func `Middleware()` to set the supplied
+// HTML function
 // TemplateEngine and make `HTML()` work validly.
 func HTML(ctx *gin.Context, code int, name string, data interface{}) {
 	if val, ok := ctx.Get(templateEngineKey); ok {
