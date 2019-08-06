@@ -10,13 +10,12 @@ import (
 // go-bindata  -pkg staticdata -o assets/static/bindata.go static/...
 // go-bindata -prefix "views/" -pkg viewsdata -o assets/views/bindata.go views/...
 
-/**
-New template engine, default views root.
-*/
+// New template engine, default views root.
 func New(viewsRootBox *assetfs.AssetFS) *goview.ViewEngine {
 	return NewWithConfig(viewsRootBox, goview.DefaultConfig)
 }
 
+// NewWithConfig create new template engine
 func NewWithConfig(viewsRootBox *assetfs.AssetFS, config goview.Config) *goview.ViewEngine {
 	config.Root = viewsRootBox.Prefix
 	engine := goview.New(config)
@@ -24,6 +23,7 @@ func NewWithConfig(viewsRootBox *assetfs.AssetFS, config goview.Config) *goview.
 	return engine
 }
 
+// FileHandler function
 func FileHandler(viewsRootBox *assetfs.AssetFS) goview.FileHandler {
 	return func(config goview.Config, tplFile string) (content string, err error) {
 		// get file contents as string
