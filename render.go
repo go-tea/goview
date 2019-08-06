@@ -5,23 +5,14 @@ import (
 	"net/http"
 )
 
+// ViewRender struct
 type ViewRender struct {
 	Engine *ViewEngine
 	Name   string
 	Vars   M
 }
 
-/*
-func (e *ViewEngine) NewInstance(name string) ViewRender {
-
-	return ViewRender{
-		Engine: e,
-		Name:   name,
-		Vars:   make(M),
-	}
-}
-*/
-
+// Instance method
 func (e *ViewEngine) Instance(name string, data ...map[string]interface{}) ViewRender {
 
 	d := make(M)
@@ -37,15 +28,16 @@ func (e *ViewEngine) Instance(name string, data ...map[string]interface{}) ViewR
 	}
 }
 
+// Render method
 func (r ViewRender) Render(w http.ResponseWriter) {
 	err := r.Engine.executeRender(w, r.Name, r.Vars)
 	if err != nil {
-		switch e := err.(type) {
+		switch t := err.(type) {
 		case IStatusError:
 			// We can retrieve the status here and write out a specific
 			// HTTP status code.
-			log.Printf("HTTP %d - %s", e.Status(), e)
-			http.Error(w, e.Error(), e.Status())
+			log.Printf("HTTP %d - %s", t.Status(), t)
+			http.Error(w, t.Error(), t.Status())
 		default:
 			// Any error types we don't specifically look out for default
 			// to serving a HTTP 500

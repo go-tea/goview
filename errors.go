@@ -1,16 +1,16 @@
 package goview
 
-// Allows StatusError to satisfy the error interface.
+// Error allows StatusError to satisfy the error interface.
 func (se StatusError) Error() string {
 	return se.Err.Error()
 }
 
-// Returns our HTTP status code.
+// Status returns our HTTP status code.
 func (se StatusError) Status() int {
 	return se.Code
 }
 
-// Error represents a handler error. It provides methods for a HTTP status
+// IStatusError represents a handler error. It provides methods for a HTTP status
 // code and embeds the built-in error interface.
 type IStatusError interface {
 	error
