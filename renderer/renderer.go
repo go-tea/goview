@@ -250,6 +250,9 @@ func file(w http.ResponseWriter, status int, fpath, name, contentDisposition str
 	// filename, ext, mimes
 	var fn, mime, ext string
 	fn, err = filepath.Abs(fpath)
+	if err != nil {
+		return err
+	}
 	ext = filepath.Ext(fpath)
 	if name != "" {
 		if !strings.HasSuffix(name, ext) {
