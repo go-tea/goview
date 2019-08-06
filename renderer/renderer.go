@@ -39,40 +39,24 @@ const (
 	ContentXML = "text/xml"
 	// ContentYAML represents content type application/x-yaml
 	ContentYAML = "application/x-yaml"
-	// ContentOctet
+	// ContentOctet describes octet-stream
 	ContentOctet = "application/octet-stream"
 	// ContentDisposition describes contentDisposition
 	ContentDisposition = "Content-Disposition"
-
-	//	ContentMsgPack = []string{"application/msgpack; charset=utf-8"}
-
 	// contentDispositionInline describes content disposition type
 	contentDispositionInline string = "inline"
 	// contentDispositionAttachment describes content disposition type
 	contentDispositionAttachment string = "attachment"
-
-	// Default
-	//	defaultCharset    = "UTF-8"
-//	defaultJSONPrefix = ""
 )
 
-/*
-type Options struct {
+// Vars
+var (
 	JSONPrefix   string
 	JSONIndent   bool
 	XMLPrefix    string
 	XMLIndent    bool
 	UnEscapeHTML bool
-}
-
-var opt Options
-*/
-
-var JSONPrefix string
-var JSONIndent bool
-var XMLPrefix string
-var XMLIndent bool
-var UnEscapeHTML bool
+)
 
 // NoContent serve success but no content response
 func NoContent(w http.ResponseWriter) error {
@@ -80,7 +64,7 @@ func NoContent(w http.ResponseWriter) error {
 	return nil
 }
 
-// Render serve raw response where you have to build the headers, body
+// Raw render serve raw response where you have to build the headers, body
 func Raw(w http.ResponseWriter, status int, v interface{}) error {
 	w.WriteHeader(status)
 	_, err := w.Write(v.([]byte))
