@@ -1,6 +1,9 @@
+
+[![GoDoc](http://img.shields.io/badge/go-documentation-blue.svg?style=flat-square)](http://godoc.org/github.com/go-tea/goviews) 
+[![Go Report Card](https://goreportcard.com/badge/github.com/go-tea/goviews)](https://goreportcard.com/report/github.com/go-tea/goviews)
+
 # goview
 
-[![GoDoc Widget]][GoDoc] 
 
 Goview is a lightweight, minimalist and idiomatic template library based on golang html/template for building Go web application.
 
