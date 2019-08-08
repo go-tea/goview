@@ -1,6 +1,6 @@
 
 [![GoDoc](http://img.shields.io/badge/go-documentation-blue.svg?style=flat-square)](http://godoc.org/github.com/go-tea/goview) 
-[![Go Report Card](https://goreportcard.com/badge/github.com/go-tea/goviews)](https://goreportcard.com/report/github.com/go-tea/goviews)
+[![Go Report Card](https://goreportcard.com/badge/github.com/go-tea/goview)](https://goreportcard.com/report/github.com/go-tea/goview)
 
 # goview
 
